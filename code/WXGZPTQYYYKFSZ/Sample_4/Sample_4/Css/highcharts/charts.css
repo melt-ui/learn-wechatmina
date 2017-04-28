@@ -1,0 +1,24 @@
+﻿body
+{
+    font-family: 微软雅黑,宋体,Arial,sans-serif;
+}
+h1, h2, h3, h4, h5, h6
+{
+    padding: 0;
+    margin: 0;
+}
+.row
+{
+    margin: 20px 0 30px 20px;
+    position: relative;
+}
+.area
+{
+    border: 1px solid #cdced0;
+    width: 100%;
+}
+.total
+{
+    border-top: 1px solid #cdced0;
+    padding: 7px 0 7px 15px;
+}

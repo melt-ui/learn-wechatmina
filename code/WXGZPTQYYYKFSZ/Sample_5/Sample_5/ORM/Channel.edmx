@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Channel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ChannelStoreContainer">
+    <EntitySet Name="Channel" EntityType="Channel.Store.Channel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChannelType" EntityType="Channel.Store.ChannelType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChannelScan" EntityType="Channel.Store.ChannelScan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WeixinUserInfo" EntityType="Channel.Store.WeixinUserInfo" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Channel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SceneId" Type="int" Nullable="false" />
+    <Property Name="ChannelTypeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="Qrcode" Type="ntext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChannelType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChannelScan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OpenId" Type="nvarchar" Nullable="false" />
+    <Property Name="ScanType" Type="smallint" Nullable="false" />
+    <Property Name="ChannelId" Type="int" Nullable="false" />
+    <Property Name="ScanTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WeixinUserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="OpenId" Type="nvarchar" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar" Nullable="false" />
+    <Property Name="HeadImgUrl" Type="nvarchar" Nullable="false" />
+    <Property Name="Language" Type="nvarchar" Nullable="false" />
+    <Property Name="Sex" Type="smallint" Nullable="false" />
+    <Property Name="City" Type="nvarchar" Nullable="false" />
+    <Property Name="Province" Type="nvarchar" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" Nullable="false" />
+    <Property Name="Subscribe_time" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Channel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ChannelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Channel" EntityType="Channel.Channel" />
+          <EntitySet Name="ChannelType" EntityType="Channel.ChannelType" />
+          <EntitySet Name="ChannelScan" EntityType="Channel.ChannelScan" />
+          <EntitySet Name="WeixinUserInfo" EntityType="Channel.WeixinUserInfo" />
+        </EntityContainer>
+        <EntityType Name="Channel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SceneId" Nullable="false" />
+          <Property Type="Int32" Name="ChannelTypeId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Qrcode" Nullable="false" MaxLength="Max" />
+        </EntityType>
+        <EntityType Name="ChannelType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChannelScan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="OpenId" Nullable="false" />
+          <Property Type="Int16" Name="ScanType" Nullable="false" />
+          <Property Type="Int32" Name="ChannelId" Nullable="false" />
+          <Property Type="DateTime" Name="ScanTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeixinUserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="OpenId" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="NickName" Nullable="false" />
+          <Property Type="String" Name="HeadImgUrl" Nullable="false" />
+          <Property Type="String" Name="Language" Nullable="false" />
+          <Property Type="Int16" Name="Sex" Nullable="false" />
+          <Property Type="String" Name="City" Nullable="false" />
+          <Property Type="String" Name="Province" Nullable="false" />
+          <Property Type="String" Name="Country" Nullable="false" />
+          <Property Type="Int64" Name="Subscribe_time" Nullable="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ChannelStoreContainer" CdmEntityContainer="ChannelContainer">
+    <EntitySetMapping Name="Channel">
+      <EntityTypeMapping TypeName="IsTypeOf(Channel.Channel)">
+        <MappingFragment StoreEntitySet="Channel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SceneId" ColumnName="SceneId" />
+          <ScalarProperty Name="ChannelTypeId" ColumnName="ChannelTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Qrcode" ColumnName="Qrcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChannelType">
+      <EntityTypeMapping TypeName="IsTypeOf(Channel.ChannelType)">
+        <MappingFragment StoreEntitySet="ChannelType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChannelScan">
+      <EntityTypeMapping TypeName="IsTypeOf(Channel.ChannelScan)">
+        <MappingFragment StoreEntitySet="ChannelScan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OpenId" ColumnName="OpenId" />
+          <ScalarProperty Name="ScanType" ColumnName="ScanType" />
+          <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />
+          <ScalarProperty Name="ScanTime" ColumnName="ScanTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeixinUserInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(Channel.WeixinUserInfo)">
+        <MappingFragment StoreEntitySet="WeixinUserInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OpenId" ColumnName="OpenId" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="HeadImgUrl" ColumnName="HeadImgUrl" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Subscribe_time" ColumnName="Subscribe_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="默认值" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

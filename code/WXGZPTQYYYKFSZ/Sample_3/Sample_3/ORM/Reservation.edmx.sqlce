@@ -1,0 +1,101 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 04/15/2014 18:53:57
+-- Generated from EDMX file: C:\Users\Administrator\Desktop\WeixinDemo\API框架\Sample_3\Sample_3\DataEntity\Reservation.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [ReservationContent];
+GO
+    DROP TABLE [UserReservationContent];
+GO
+    DROP TABLE [UserReservation];
+GO
+    DROP TABLE [Reservation];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'ReservationContent'
+CREATE TABLE [ReservationContent] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(4000)  NOT NULL,
+    [Content] nvarchar(4000)  NOT NULL,
+    [ReservationID] int  NOT NULL
+);
+GO
+
+-- Creating table 'UserReservationContent'
+CREATE TABLE [UserReservationContent] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Content] nvarchar(4000)  NOT NULL,
+    [UserReservationId] int  NOT NULL,
+    [ReservationContentId] int  NOT NULL
+);
+GO
+
+-- Creating table 'UserReservation'
+CREATE TABLE [UserReservation] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [WeixinOpenId] nvarchar(4000)  NOT NULL,
+    [ReservationID] int  NOT NULL
+);
+GO
+
+-- Creating table 'Reservation'
+CREATE TABLE [Reservation] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [ID] in table 'ReservationContent'
+ALTER TABLE [ReservationContent]
+ADD CONSTRAINT [PK_ReservationContent]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'UserReservationContent'
+ALTER TABLE [UserReservationContent]
+ADD CONSTRAINT [PK_UserReservationContent]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'UserReservation'
+ALTER TABLE [UserReservation]
+ADD CONSTRAINT [PK_UserReservation]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'Reservation'
+ALTER TABLE [Reservation]
+ADD CONSTRAINT [PK_Reservation]
+    PRIMARY KEY ([ID] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

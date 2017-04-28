@@ -1,0 +1,138 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 05/25/2014 16:46:34
+-- Generated from EDMX file: C:\Users\Administrator\Desktop\WeixinDemo\API框架\Sample_5\Sample_5\ORM\Channel.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [Channel];
+GO
+    DROP TABLE [ChannelType];
+GO
+    DROP TABLE [ChannelScan];
+GO
+    DROP TABLE [WeixinUserInfo];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'Channel'
+-- 推广渠道表
+CREATE TABLE [Channel] (
+	--主键
+    [ID] int IDENTITY(1,1) NOT NULL,
+	--生成带参数二维码接口的场景值ID
+	--扫描二维码产生的事件中将包含该场景值ID
+	--以此识别不同推广渠道产生的扫描
+    [SceneId] int  NOT NULL,
+	--所属渠道类型ID
+    [ChannelTypeId] int  NOT NULL,
+	--渠道名称
+    [Name] nvarchar(4000)  NOT NULL,
+	--分配给渠道的含场景值ID的二维码图片名称
+    [Qrcode] ntext  NOT NULL
+);
+GO
+
+-- Creating table 'ChannelType'
+-- 推广渠道类型（渠道分组）表
+CREATE TABLE [ChannelType] (
+	--主键
+    [ID] int IDENTITY(1,1) NOT NULL,
+	--渠道类型名称
+    [Name] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- Creating table 'ChannelScan'
+-- 推广渠道二维码扫描记录表
+CREATE TABLE [ChannelScan] (
+	--主键
+    [ID] int IDENTITY(1,1) NOT NULL,
+	--扫描二维码的微信个人用户OpenId
+    [OpenId] nvarchar(4000)  NOT NULL,
+	--扫描类型
+    [ScanType] smallint  NOT NULL,
+	--所属渠道
+    [ChannelId] int  NOT NULL,
+	--扫描时间
+    [ScanTime] datetime  NOT NULL
+);
+GO
+
+-- Creating table 'WeixinUserInfo'
+-- 微信用户信息表
+CREATE TABLE [WeixinUserInfo] (
+	--微信用户的OpenId
+    [OpenId] nvarchar(4000)  NOT NULL,
+	--昵称
+    [NickName] nvarchar(4000)  NOT NULL,
+	--用户的头像链接
+    [HeadImgUrl] nvarchar(4000)  NOT NULL,
+	--用户的语言，简体中文为zh_CN
+    [Language] nvarchar(4000)  NOT NULL,
+	--性别
+    [Sex] smallint  NOT NULL,
+	--用户所在城市
+    [City] nvarchar(4000)  NOT NULL,
+	--用户所在省份
+    [Province] nvarchar(4000)  NOT NULL,
+	--用户所在国家
+    [Country] nvarchar(4000)  NOT NULL,
+	--用户关注时间
+    [Subscribe_time] bigint  NOT NULL,
+	--主键
+    [ID] int IDENTITY(1,1) NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [ID] in table 'Channel'
+ALTER TABLE [Channel]
+ADD CONSTRAINT [PK_Channel]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'ChannelType'
+ALTER TABLE [ChannelType]
+ADD CONSTRAINT [PK_ChannelType]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'ChannelScan'
+ALTER TABLE [ChannelScan]
+ADD CONSTRAINT [PK_ChannelScan]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'WeixinUserInfo'
+ALTER TABLE [WeixinUserInfo]
+ADD CONSTRAINT [PK_WeixinUserInfo]
+    PRIMARY KEY ([ID] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

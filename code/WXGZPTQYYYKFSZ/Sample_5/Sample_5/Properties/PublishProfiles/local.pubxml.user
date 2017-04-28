@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/Channel.sdf">
+      <publishTime>05/25/2014 17:23:29</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>02/13/2014 21:54:51</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.Net4.dll">
+      <publishTime>02/13/2014 21:54:51</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>05/19/2014 18:06:09</publishTime>
+    </File>
+    <File Include="bin/Sample_5.dll">
+      <publishTime>05/25/2014 17:29:07</publishTime>
+    </File>
+    <File Include="bin/WeiXinApiSDK.dll">
+      <publishTime>05/25/2014 17:23:29</publishTime>
+    </File>
+    <File Include="bin/WeiXinMessageSDK.dll">
+      <publishTime>05/25/2014 17:23:28</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.resources.dll">
+      <publishTime>05/19/2014 18:06:13</publishTime>
+    </File>
+    <File Include="ChannelDelete.aspx">
+      <publishTime>05/24/2014 16:54:46</publishTime>
+    </File>
+    <File Include="ChannelEdit.aspx">
+      <publishTime>05/25/2014 15:53:56</publishTime>
+    </File>
+    <File Include="ChannelList.aspx">
+      <publishTime>05/25/2014 15:35:38</publishTime>
+    </File>
+    <File Include="ChannelScanList.aspx">
+      <publishTime>05/25/2014 16:32:51</publishTime>
+    </File>
+    <File Include="ChannelTypeDelete.aspx">
+      <publishTime>05/24/2014 16:54:55</publishTime>
+    </File>
+    <File Include="ChannelTypeEdit.aspx">
+      <publishTime>05/25/2014 15:54:28</publishTime>
+    </File>
+    <File Include="ChannelTypeList.aspx">
+      <publishTime>05/25/2014 15:55:43</publishTime>
+    </File>
+    <File Include="Css/bootstrap.min.css">
+      <publishTime>03/31/2014 20:43:10</publishTime>
+    </File>
+    <File Include="Index.aspx">
+      <publishTime>05/22/2014 16:14:17</publishTime>
+    </File>
+    <File Include="ORM/Channel.edmx.diagram">
+      <publishTime>05/22/2014 21:43:43</publishTime>
+    </File>
+    <File Include="ORM/Channel.edmx.sqlce">
+      <publishTime>05/25/2014 16:46:38</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/19/2014 18:06:13</publishTime>
+    </File>
+    <File Include="QRcode.aspx">
+      <publishTime>05/24/2014 16:52:37</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>03/31/2014 20:43:19</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.9.1.min.js">
+      <publishTime>03/31/2014 20:43:19</publishTime>
+    </File>
+    <File Include="Scripts/jquery.tmpl.min.js">
+      <publishTime>03/31/2014 20:43:12</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/25/2014 17:29:07</publishTime>
+    </File>
+    <File Include="WeixinUserInfoList.aspx">
+      <publishTime>05/25/2014 16:49:31</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

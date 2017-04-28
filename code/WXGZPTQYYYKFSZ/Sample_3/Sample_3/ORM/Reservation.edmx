@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Reservation.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ReservationStoreContainer">
+    <EntitySet Name="ReservationContent" EntityType="Reservation.Store.ReservationContent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserReservationContent" EntityType="Reservation.Store.UserReservationContent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserReservation" EntityType="Reservation.Store.UserReservation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reservation" EntityType="Reservation.Store.Reservation" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ReservationContent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" Nullable="false" />
+    <Property Name="ReservationID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserReservationContent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" Nullable="false" />
+    <Property Name="UserReservationId" Type="int" Nullable="false" />
+    <Property Name="ReservationContentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserReservation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WeixinOpenId" Type="nvarchar" Nullable="false" />
+    <Property Name="ReservationID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Reservation" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ReservationContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ReservationContent" EntityType="Reservation.ReservationContent" />
+          <EntitySet Name="UserReservationContent" EntityType="Reservation.UserReservationContent" />
+          <EntitySet Name="UserReservation" EntityType="Reservation.UserReservation" />
+          <EntitySet Name="Reservation" EntityType="Reservation.Reservation" />
+        </EntityContainer>
+        <EntityType Name="ReservationContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Content" Nullable="false" />
+          <Property Type="Int32" Name="ReservationID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserReservationContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Content" Nullable="false" />
+          <Property Type="Int32" Name="UserReservationId" Nullable="false" />
+          <Property Type="Int32" Name="ReservationContentId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserReservation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="WeixinOpenId" Nullable="false" />
+          <Property Type="Int32" Name="ReservationID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ReservationStoreContainer" CdmEntityContainer="ReservationContainer">
+    <EntitySetMapping Name="ReservationContent">
+      <EntityTypeMapping TypeName="IsTypeOf(Reservation.ReservationContent)">
+        <MappingFragment StoreEntitySet="ReservationContent">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserReservationContent">
+      <EntityTypeMapping TypeName="IsTypeOf(Reservation.UserReservationContent)">
+        <MappingFragment StoreEntitySet="UserReservationContent">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="UserReservationId" ColumnName="UserReservationId" />
+          <ScalarProperty Name="ReservationContentId" ColumnName="ReservationContentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserReservation">
+      <EntityTypeMapping TypeName="IsTypeOf(Reservation.UserReservation)">
+        <MappingFragment StoreEntitySet="UserReservation">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="WeixinOpenId" ColumnName="WeixinOpenId" />
+          <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservation">
+      <EntityTypeMapping TypeName="IsTypeOf(Reservation.Reservation)">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="默认值" />
+        <DesignerProperty Name="ProcessDependentTemplatesOnSave" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

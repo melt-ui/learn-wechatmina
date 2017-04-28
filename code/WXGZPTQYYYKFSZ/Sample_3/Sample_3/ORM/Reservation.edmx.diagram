@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8dd2fd882b934a93bcf9a9a364a33902" Name="Reservation" >
+        <EntityTypeShape EntityType="Reservation.ReservationContent" Width="2" PointX="7.625" PointY="1.25" />
+        <EntityTypeShape EntityType="Reservation.UserReservationContent" Width="2.25" PointX="5" PointY="1.25" />
+        <EntityTypeShape EntityType="Reservation.UserReservation" Width="1.5" PointX="5.75" PointY="3.125" />
+        <EntityTypeShape EntityType="Reservation.Reservation" Width="1.5" PointX="7.625" PointY="3.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
